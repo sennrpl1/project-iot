@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "author": "IoT Student",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -143.7,
+      "left": -168.6,
+      "attrs": { "temperature": "33.1", "humidity": "49.5" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": 164.7,
+      "left": -224.9,
+      "attrs": { "distance": "19" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -118.4,
+      "left": 168.8,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": 103.6, "left": 201.6, "attrs": {} },
+    { "type": "wokwi-buzzer", "id": "buzzer1", "top": 309.6, "left": 21, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:3V3", "dht1:VCC", "#8f4814", [ "h-33.41", "v-28.8", "h-124.8" ] ],
+    [ "esp:GND.1", "dht1:GND", "white", [ "h-14.21", "v-172.8", "h-115.2" ] ],
+    [ "esp:15", "dht1:SDA", "green", [ "h33.64", "v-182.4", "h-278.5" ] ],
+    [ "esp:VIN", "ultrasonic1:VCC", "red", [ "v0" ] ],
+    [ "esp:GND.2", "ultrasonic1:GND", "red", [ "h43.24", "v230.4" ] ],
+    [ "esp:5", "ultrasonic1:TRIG", "blue", [ "h33.64", "v153.6", "h-278" ] ],
+    [ "esp:18", "ultrasonic1:ECHO", "gray", [ "h14.44", "v182.4", "h-248.8" ] ],
+    [ "esp:VIN", "lcd1:VCC", "red", [ "v0" ] ],
+    [ "esp:GND.1", "lcd1:GND", "white", [ "h-23.81", "v-240" ] ],
+    [ "esp:21", "lcd1:SDA", "yellow", [ "h52.84", "v-144.2" ] ],
+    [ "esp:22", "lcd1:SCL", "purple", [ "h14.44", "v-105.9" ] ],
+    [ "esp:VIN", "servo1:V+", "red", [ "v0" ] ],
+    [ "esp:GND.2", "servo1:GND", "red", [ "h62.44", "v124.8" ] ],
+    [ "esp:13", "servo1:PWM", "orange", [ "h-14.21", "v67.2", "h163.2", "v-57.8" ] ],
+    [ "esp:12", "buzzer1:1", "black", [ "h-23.81", "v259.2", "h76.8" ] ],
+    [ "esp:GND.2", "buzzer1:2", "red", [ "h24.04", "v374.4", "h-57.2" ] ]
+  ],
+  "dependencies": {}
+}
